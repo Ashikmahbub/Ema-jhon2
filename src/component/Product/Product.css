@@ -41,7 +41,7 @@
 .btn-cart{
     height: 30px;
     width: 100%;
-    background: #FFE0B3;
+    background-color: cornflowerblue;
     border:0;
     border-radius: 0px 0px 8px 8px;
     padding: 10px;
@@ -55,6 +55,7 @@
 }
 .btn-cart p{
     margin-right: 5px;
+
 }
 .btn-cart:hover{
     background-color:orange;
