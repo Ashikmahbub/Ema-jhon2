@@ -1,4 +1,21 @@
 .shop-container{
     display: grid;
-    grid-template-columns: 4fr,1fr;
+    grid-template-columns: 4fr 1fr;
 }
+.products-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 45px;
+    padding: 14px;
+}
+@media only screen and (max-width: 500px) {
+    .products-container {
+       display: flex;
+       flex-direction: column;
+       width:100%;
+    }
+    .shop-container{
+        display: flex;
+         flex-direction: column-reverse;
+    }
+  }
