@@ -1,10 +1,11 @@
 import React from 'react';
 import './ReviewOrder.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-const ReviewOrder = ({product}) => {
-    const {name,price ,quantity,img,shipping} =product;
+const ReviewOrder = ({product,deleteItem,itemIncrement}) => {
+    const {id,name,price ,quantity,img,shipping,} =product;
+    
     return (
         <div className='review-item'>
             <div>
@@ -18,9 +19,14 @@ const ReviewOrder = ({product}) => {
                     <p><small>Quantity : {quantity}</small></p>
                 </div>
                 <div className="delete-container">
-                    <button className='delete'>
+                    <button className='increment' onClick={()=>itemIncrement(id)}>+</button>
+                    <button className='decrement'>-</button>
+
+
+                    <button className='delete' onClick={()=>deleteItem(id)}>
                         <FontAwesomeIcon className='delete-icon' icon={faTrash}></FontAwesomeIcon>
                     </button>
+                    
                 </div>
                    
             </div>
