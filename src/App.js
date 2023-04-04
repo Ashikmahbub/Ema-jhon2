@@ -6,6 +6,7 @@ import About from './component/About/About';
 import Orders from './component/Orders/Orders';
 import Shop from './component/Shop/Shop';
 import Inventory from './component/Inventory/Inventory';
+import { productCartLoaders } from './Loaders/productCartLoaders';
  
  
 
@@ -19,10 +20,12 @@ function App() {
       children:[
         {
           path:'/',
+          loader:productCartLoaders,
           element:<Shop></Shop>
         },
         {
           path:'orders',
+          loader:productCartLoaders,
           element:<Orders></Orders>
         },
         {
