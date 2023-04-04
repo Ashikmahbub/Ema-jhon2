@@ -3,7 +3,7 @@ import './ReviewOrder.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-const ReviewOrder = ({product,deleteItem,itemIncrement}) => {
+const ReviewOrder = ({product,deleteItem,itemIncrement,clearCart}) => {
     const {id,name,price ,quantity,img,shipping,} =product;
     
     return (

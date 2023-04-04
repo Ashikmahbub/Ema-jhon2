@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import ReviewOrder from '../ReviewOrder/ReviewOrder';
-import { removeFromDb } from '../../utilities/fakedb';
+import { removeFromDb,deleteShoppingCart  } from '../../utilities/fakedb';
 
 const Orders = () => {
     const {products,initialCart} =useLoaderData();
     const [cart,setCart] =useState(initialCart);
+    const clearCart =()=>{
+        setCart([]);
+        deleteShoppingCart();
+    }
     const itemIncrement =id =>{
         for (const product of cart){
             console.log(product);
@@ -55,6 +59,7 @@ const Orders = () => {
                         product={product}
                         deleteItem ={deleteItem}
                         itemIncrement ={itemIncrement}
+                        clearCart ={clearCart}
                      
                          
                          
@@ -66,7 +71,10 @@ const Orders = () => {
 
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart 
+                cart={cart}
+                clearCart={clearCart}
+                ></Cart>
 
             </div>
             
