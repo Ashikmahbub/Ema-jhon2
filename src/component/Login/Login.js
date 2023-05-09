@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/UserContext";
 
 const Login = () => {
+  const {loginUser} =useContext(AuthContext);
   return (
     <div className="form-container">
       <h2 className="form-title">Login</h2>

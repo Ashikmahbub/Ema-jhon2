@@ -1,10 +1,11 @@
 .form-container{
 
     width: 500px;
-    height: 500px;
+    height: 590px;
     border: 1px solid rgba(189, 181, 147, 0.801);
     margin: 20px auto;
     border-radius: 8px;
+    padding: 5px;
 
 
 
