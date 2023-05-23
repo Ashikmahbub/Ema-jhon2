@@ -1,14 +1,35 @@
 import React, { useContext } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/UserContext";
 
 const Login = () => {
-  const {loginUser} =useContext(AuthContext);
+  const {loginUser,user,logOut} =useContext(AuthContext);
+  const navigate =  useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+  const handleLogin =event =>{
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password =form.password.value;
+    console.log(email,password);
+    loginUser(email,password)
+    .then(result =>{
+      const user = result.user;
+      console.log(user);
+      form.reset();
+      console.log(from);
+      navigate(from ,{replace:true})
+     
+
+    })
+    .catch(error =>console.error(error))
+  }
   return (
     <div className="form-container">
       <h2 className="form-title">Login</h2>
-      <form>
+      <form onSubmit={handleLogin}>
         <div className="form-control">
             <label htmlFor="email">Email</label>
           <input
@@ -24,7 +45,11 @@ const Login = () => {
             placeholder="Enter Your Password"
             required
           />
-          <button type="submit">Login</button>
+          
+            <button type="submit">Login</button>
+
+           
+           
         </div>
         
       </form>

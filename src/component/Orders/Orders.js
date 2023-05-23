@@ -75,6 +75,7 @@ const Orders = () => {
                 cart={cart}
                 clearCart={clearCart}
                 ></Cart>
+                {/* <button>Proceed to Shipping</button> */}
 
             </div>
             

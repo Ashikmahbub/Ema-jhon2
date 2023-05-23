@@ -3,7 +3,7 @@ import { addToDb, deleteShoppingCart, getStoredCart } from '../../utilities/fake
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css'
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Shop = () => {
     const {products} = useLoaderData();
@@ -69,12 +69,10 @@ const Shop = () => {
                 }
              </div>
              <div className="cart-container">
-                 <Cart 
-                 cart ={cart} 
-                 clearCart ={clearCart}
-                 
-                 >
-
+                 <Cart cart ={cart} clearCart ={clearCart}>
+                    <Link to='/shipping'>
+                        <button>Proceed Shipping</button>
+                    </Link>
                  </Cart>
 
              </div>
